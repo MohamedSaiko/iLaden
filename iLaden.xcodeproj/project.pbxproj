@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DB4156C62D40C5F90038E600 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = DB4156C52D40C5F90038E600 /* GoogleSignIn */; };
+		DB4156C82D40C5F90038E600 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB4156C72D40C5F90038E600 /* GoogleSignInSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DB4156842D3A0DF80038E600 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +34,22 @@
 		DB41568D2D3A0DF80038E600 /* iLadenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLadenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DB4156AE2D3A44280038E600 /* Exceptions for "iLaden" folder in "iLaden" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DB4156722D3A0DF70038E600 /* iLaden */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB4156752D3A0DF70038E600 /* iLaden */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DB4156AE2D3A44280038E600 /* Exceptions for "iLaden" folder in "iLaden" target */,
+			);
 			path = iLaden;
 			sourceTree = "<group>";
 		};
@@ -52,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4156C62D40C5F90038E600 /* GoogleSignIn in Frameworks */,
+				DB4156C82D40C5F90038E600 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +132,8 @@
 			);
 			name = iLaden;
 			packageProductDependencies = (
+				DB4156C52D40C5F90038E600 /* GoogleSignIn */,
+				DB4156C72D40C5F90038E600 /* GoogleSignInSwift */,
 			);
 			productName = iLaden;
 			productReference = DB4156732D3A0DF70038E600 /* iLaden.app */;
@@ -195,6 +217,9 @@
 			);
 			mainGroup = DB41566A2D3A0DF70038E600;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DB4156C42D40C5F90038E600 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DB4156742D3A0DF70038E600 /* Products */;
 			projectDirPath = "";
@@ -399,6 +424,7 @@
 				DEVELOPMENT_TEAM = RDX6Y8GPTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iLaden/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +454,7 @@
 				DEVELOPMENT_TEAM = RDX6Y8GPTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iLaden/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -558,6 +585,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB4156C42D40C5F90038E600 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB4156C52D40C5F90038E600 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB4156C42D40C5F90038E600 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		DB4156C72D40C5F90038E600 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB4156C42D40C5F90038E600 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB41566B2D3A0DF70038E600 /* Project object */;
 }
