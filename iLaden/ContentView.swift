@@ -11,15 +11,6 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         LoginScreen()
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//                .font(.custom("Roboto", size: 24))
-//                .fontWeight(.bold)
-//        }
-//        .padding()
     }
 }
 #Preview {
