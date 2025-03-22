@@ -18,7 +18,7 @@ struct IconTextButton: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    public init(icon: String = .isGoogleIcon(), text: String = "", textSize: CGFloat = 20, minHeight: CGFloat = 20, maxWidth: CGFloat = .infinity, alignment: Alignment = .center, action: @escaping () -> Void = {}) {
+    public init(icon: String = "", text: String = "", textSize: CGFloat = 20, minHeight: CGFloat = 20, maxWidth: CGFloat = .infinity, alignment: Alignment = .center, action: @escaping () -> Void = {}) {
         self.icon = icon
         self.text = text
         self.textSize = textSize
@@ -38,7 +38,7 @@ struct IconTextButton: View {
                 
                 Spacer()
                 
-                Text("Continue With Google")
+                Text(text)
                     .font(.isPrimary(withSize: textSize))
                     .padding()
                 
