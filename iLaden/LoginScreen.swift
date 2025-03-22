@@ -17,7 +17,7 @@ struct LoginScreen: View {
             .opacity(isHidden ? 0 : 1)
         
         //GoogleSignInButton(action: handleSignInButton)
-        IconTextButton(action: handleSignInButton)
+        IconTextButton(icon: .isGoogleIcon(),text: "Continue with Google", action: handleSignInButton)
         
         Button("signout") {
             getJWTIDToken()
