@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
+//import GoogleSignIn
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        LoginScreen()
+//        VStack {
+//            Image(systemName: "globe")
+//                .imageScale(.large)
+//                .foregroundStyle(.tint)
+//            Text("Hello, world!")
+//                .font(.custom("Roboto", size: 24))
+//                .fontWeight(.bold)
+//        }
+//        .padding()
     }
 }
-
 #Preview {
     ContentView()
 }
