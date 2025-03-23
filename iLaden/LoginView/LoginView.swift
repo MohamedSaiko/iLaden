@@ -9,7 +9,7 @@ import SwiftUI
 import GoogleSignInSwift
 import GoogleSignIn
 
-struct LoginScreen: View {
+struct LoginView: View {
     @State var isHidden: Bool = true
     
     var body: some View {
@@ -57,5 +57,5 @@ struct LoginScreen: View {
 }
 
 #Preview {
-    LoginScreen()
+    LoginView()
 }
