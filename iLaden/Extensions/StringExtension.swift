@@ -6,7 +6,6 @@
 //
 
 extension String {
-    static func isGoogleIcon() -> String {
-        return "GoogleIcon"
-    }
+    static let googleIcon = "GoogleIcon"
+    static let idToken = "ID_Token"
 }
