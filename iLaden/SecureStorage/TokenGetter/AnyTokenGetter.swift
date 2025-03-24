@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AnyTokenGetter {
+    func getToken(forKey key: String) -> String
+}
