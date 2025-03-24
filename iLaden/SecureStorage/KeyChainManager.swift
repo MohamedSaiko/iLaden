@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  SecureStorageManager.swift
 //  iLaden
 //
 //  Created by Mohamed Sayed on 23.03.25.
@@ -7,7 +7,6 @@
 
 import Foundation
 
-final class LoginViewModel: ObservableObject {
-    
+final class KeyChainManager: AnySecureStorageManager {
     
 }
