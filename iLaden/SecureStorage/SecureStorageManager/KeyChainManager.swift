@@ -14,7 +14,7 @@ final class KeyChainManager: AnySecureStorageManager {
         case unknown(OSStatus)
     }
     
-    func set(secret: String, forKey key: String) throws {
+    func setSecret(secret: String, forKey key: String) throws {
         guard let data = secret.data(using: .utf8) else { return }
         
         let query: [String: Any] = [
@@ -35,7 +35,7 @@ final class KeyChainManager: AnySecureStorageManager {
         }
     }
     
-    func get(forKey key: String) -> String? {
+    func getSecret(forKey key: String) -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key,
@@ -53,7 +53,7 @@ final class KeyChainManager: AnySecureStorageManager {
         return nil
     }
     
-    func update(secret: String, forKey key: String) throws {
+    func updateSecret(secret: String, forKey key: String) throws {
         guard let data = secret.data(using: .utf8) else { return }
         
         let query: [String: Any] = [
@@ -72,7 +72,7 @@ final class KeyChainManager: AnySecureStorageManager {
         }
     }
     
-    func delete(forKey key: String) throws {
+    func deleteSecret(forKey key: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key

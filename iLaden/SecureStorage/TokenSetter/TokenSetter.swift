@@ -15,6 +15,6 @@ final class TokenSetter: AnyTokenSetter {
     }
     
     func setToken(token: String, forKey key: String) throws {
-        try secureStorageManager.set(secret: token, forKey: key)
+        try secureStorageManager.setSecret(secret: token, forKey: key)
     }
 }

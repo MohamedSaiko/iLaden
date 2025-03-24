@@ -15,6 +15,6 @@ final class TokenRemover: AnyTokenRemover {
     }
 
     func deleteToken(forKey key: String) throws {
-        try secureStorageManager.delete(forKey: key)
+        try secureStorageManager.deleteSecret(forKey: key)
     }
 }

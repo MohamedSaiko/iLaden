@@ -11,17 +11,17 @@ protocol AnySecureStorageManager: AnySecureStorageSetter, AnySecureStorageGetter
 }
 
 protocol AnySecureStorageSetter {
-    func set(secret: String, forKey key: String) throws
+    func setSecret(secret: String, forKey key: String) throws
 }
 
 protocol AnySecureStorageGetter {
-    func get(forKey key: String) -> String?
+    func getSecret(forKey key: String) -> String?
 }
 
 protocol AnySecureStorageUpdater {
-    func update(secret: String, forKey key: String) throws
+    func updateSecret(secret: String, forKey key: String) throws
 }
 
 protocol AnySecureStorageRemover {
-    func delete(forKey key: String) throws
+    func deleteSecret(forKey key: String) throws
 }

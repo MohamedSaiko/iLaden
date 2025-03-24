@@ -15,6 +15,6 @@ final class TokenUpdater: AnyTokenUpdater {
     }
     
     func updateToken(token: String, forKey key: String) throws {
-        try secureStorageManager.update(secret: token, forKey: key)
+        try secureStorageManager.updateSecret(secret: token, forKey: key)
     }
 }
