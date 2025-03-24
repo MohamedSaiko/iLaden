@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AnyTokenUpdater {
+    func updateToken(token: String, forKey key: String) throws
+}
