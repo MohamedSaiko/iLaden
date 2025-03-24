@@ -6,75 +6,17 @@
 //
 
 import SwiftUI
-//import GoogleSignInSwift
-//import GoogleSignIn
 
 struct LoginView: View {
     @StateObject private var loginViewModel = LoginViewModel()
-    @State private(set) var password: String = ""
     
     var body: some View {
-        Text(loginViewModel.upToDateToken)
-        
-        TextField("Password", text: $password)
-        
-        Button("Save Password") {
-            loginViewModel.setToken(token: password)
+        IconTextButton(icon: .googleIcon, text: "Continue with Google") {
+            loginViewModel.signInWithGoogle()
+            //Navigate To Home View
         }
-        
-        Button("Delete Password") {
-            loginViewModel.deleteToken()
-        }
-        
-        IconTextButton(icon: .googleIcon, text: "Continue with Google") {}
     }
 }
-    
-//    @State var isHidden: Bool = true
-//    
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//            .opacity(isHidden ? 0 : 1)
-//        
-//        //GoogleSignInButton(action: handleSignInButton)
-//        IconTextButton(icon: .isGoogleIcon(),text: "Continue with Google", action: handleSignInButton)
-//        
-//        Button("signout") {
-//            getJWTIDToken()
-//        }
-//    }
-//    
-//    func handleSignInButton() {
-//      GIDSignIn.sharedInstance.signIn(
-//        withPresenting: getRootViewController() ?? UIViewController()) { signInResult, error in
-//          guard let result = signInResult else {
-//            // Inspect error
-//              print(error?.localizedDescription)
-//            return
-//          }
-//            isHidden = false// If sign in succeeded, display the app's main content View.
-//            print("AccessToken \(result.user.accessToken)")
-//            print(" IDToken: \(result.user.idToken?.tokenString)")
-//            print(" RefreshToken: \(result.user.refreshToken)")
-//        }
-//    }
-//    
-//    func getJWTIDToken() {
-//        print("hello")
-//        if let user = GIDSignIn.sharedInstance.currentUser {
-//            let idToken = user.idToken?.tokenString// This is the JWT token
-//            print("JWT ID Token: \(idToken ?? "No token found")")
-//        }
-//    }
-//    
-//    func getRootViewController() -> UIViewController? {
-//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//              let window = windowScene.windows.first else {
-//            return nil
-//        }
-//        return window.rootViewController
-//    }
-//}
 
 #Preview {
     LoginView()
