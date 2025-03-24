@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AnyTokenRemover {
+    func deleteToken(forKey key: String) throws
+}
