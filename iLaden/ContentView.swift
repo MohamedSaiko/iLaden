@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-//import GoogleSignIn
 
 struct ContentView: View {
     var body: some View {
-        LoginScreen()
+        LoginView()
     }
 }
+
 #Preview {
     ContentView()
 }

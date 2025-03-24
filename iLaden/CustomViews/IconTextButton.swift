@@ -39,14 +39,14 @@ struct IconTextButton: View {
                 Spacer()
                 
                 Text(text)
-                    .font(.isPrimary(withSize: textSize))
+                    .font(.primary(size: textSize))
                     .padding()
                 
                 Spacer()
             }
         }
         .frame(maxWidth: maxWidth ,minHeight: minHeight, alignment: alignment)
-        .background(Color.isSecondaryBackgroundColor())
+        .background(Color.secondaryBackground)
         .foregroundColor(colorScheme == .dark ? .white : .black)
         .clipShape(Capsule())
         .padding()

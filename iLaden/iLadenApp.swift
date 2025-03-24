@@ -15,7 +15,7 @@ struct iLadenApp: App {
             ContentView()
                 .onOpenURL { url in
                     GIDSignIn.sharedInstance.handle(url)
-                  }
+                }
         }
     }
 }

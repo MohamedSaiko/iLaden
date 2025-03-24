@@ -8,7 +8,5 @@
 import SwiftUI
 
 extension Color {
-    static func isSecondaryBackgroundColor() -> Color {
-        return Color("SecondaryBackgroundColor")
-    }
+    static let secondaryBackgroundColor = Color("SecondaryBackgroundColor")
 }
