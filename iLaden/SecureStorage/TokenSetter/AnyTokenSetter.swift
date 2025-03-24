@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AnyTokenSetter {
-    func setToken(token: String) throws
+    func setToken(token: String, forKey key: String) throws
 }
