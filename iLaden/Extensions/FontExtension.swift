@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Font {
-    static func isPrimary(withSize size: CGFloat) -> Font {
+    static func primary(size: CGFloat) -> Font {
         return .custom("Roboto.ttf", size: size)
     }
 }
