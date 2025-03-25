@@ -6,3 +6,27 @@
 //
 
 import Foundation
+
+enum AppRoute: Hashable {
+    case login
+    case home
+//    case detail(String)
+}
+
+final class NavigationCoordinator: ObservableObject {
+    @Published var path: [AppRoute] = []
+    
+    func push(_ route: AppRoute) {
+        path.append(route)
+    }
+    
+    func pop() {
+        if !path.isEmpty {
+            path.removeLast()
+        }
+    }
+    
+    func reset() {
+        path.removeAll()
+    }
+}
