@@ -20,8 +20,12 @@ struct RootView: View {
                         LoginView()
                     case .home:
                         HomeView()
-//                    case .detail(let text):
-//                        DetailView(detailText: text)
+                            .environmentObject(navigationCoordinator)
+                    case .product:
+                        ProductView()
+                            .environmentObject(navigationCoordinator)
+                        //                    case .detail(let text):
+                        //                        DetailView(detailText: text)
                     }
                 }
         }
