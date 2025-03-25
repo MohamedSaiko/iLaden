@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var navigationCoordinator: NavigationCoordinator
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
         IconTextButton(icon: .googleIcon, text: "Continue with Google") {
             loginViewModel.signInWithGoogle()
-            //Navigate To Home View
+            navigationCoordinator.push(.home)
         }
     }
 }
