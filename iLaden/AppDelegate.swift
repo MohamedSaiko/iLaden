@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RootView {
+final class AppDelegate {
     func getRootViewController() -> UIViewController {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let window = windowScene.windows.first else {
             return UIViewController()
