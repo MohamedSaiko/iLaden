@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GoogleSignIn
 
 final class LoginViewModel: ObservableObject {
     private let tokenSetter: AnyTokenSetter
@@ -55,7 +56,17 @@ final class LoginViewModel: ObservableObject {
         }
     }
     
-    func signInWithGoogle() {
-        googleSignInManager.signIn()
+    func signInWithGoogle(completion: @escaping (Result<GIDSignInResult, Error>) -> Void) {
+        googleSignInManager.signIn() {(result: Result<GIDSignInResult, Error>) in
+            switch result {
+            case .success(let googleSignInResult):
+                DispatchQueue.main.async {
+                    completion(.success(googleSignInResult))
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
