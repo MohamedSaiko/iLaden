@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct LoginView: View {
     @EnvironmentObject var navigationCoordinator: NavigationCoordinator
@@ -13,8 +14,17 @@ struct LoginView: View {
     
     var body: some View {
         IconTextButton(icon: .googleIcon, text: "Continue with Google") {
-            loginViewModel.signInWithGoogle()
-            navigationCoordinator.push(.home)
+            Task {
+                loginViewModel.signInWithGoogle() {(result: Result<GIDSignInResult, Error>) in
+                    switch result {
+                    case .success(let googleSignInResult):
+                        navigationCoordinator.push(.home)
+                        print("Successfully signed in with Google")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
         }
     }
 }
