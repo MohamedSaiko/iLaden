@@ -9,13 +9,14 @@ import Foundation
 import GoogleSignIn
 
 final class GoogleSignInManager: AnyGoogleSignInManager {
-    func signIn() {
-        GIDSignIn.sharedInstance.signIn(withPresenting: AppDelegate().getRootViewController()) { signInResult, error in
-            guard error == nil, let result = signInResult else {
-                print("Error Signing In With Google: \(error?.localizedDescription ?? "No error description")")
+    func signIn(completion: @escaping (Result<GIDSignInResult, Error>) -> Void) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: AppDelegate().getRootViewController()) { signInResult, signInError in
+            guard signInError == nil, let result = signInResult else {
+                completion(.failure(signInError!))
                 return
             }
             
+            completion(.success(result))
             guard let idToken = result.user.idToken?.tokenString else { return }
             print("JWT ID Token: \(idToken)")
         }
