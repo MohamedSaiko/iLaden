@@ -5,7 +5,6 @@
 //  Created by Mohamed Sayed on 24.03.25.
 //
 
-import Foundation
 import GoogleSignIn
 
 final class GoogleSignInManager: AnyGoogleSignInManager {
@@ -17,8 +16,6 @@ final class GoogleSignInManager: AnyGoogleSignInManager {
             }
             
             completion(.success(result))
-            guard let idToken = result.user.idToken?.tokenString else { return }
-            print("JWT ID Token: \(idToken)")
         }
     }
 }
