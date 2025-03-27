@@ -5,16 +5,14 @@
 //  Created by Mohamed Sayed on 24.03.25.
 //
 
-import Foundation
-
 final class TokenRemover: AnyTokenRemover {
-    private let secureStorageManager: AnySecureStorageManager
+    private let secureStorageRemover: AnySecureStorageRemover
     
-    init(secureStorageManager: AnySecureStorageManager = KeyChainManager()) {
-        self.secureStorageManager = secureStorageManager
+    init(secureStorageRemover: AnySecureStorageRemover = KeyChainRemover()) {
+        self.secureStorageRemover = secureStorageRemover
     }
-
+    
     func deleteToken(forKey key: String) throws {
-        try secureStorageManager.deleteSecret(forKey: key)
+        try secureStorageRemover.deleteSecret(forKey: key)
     }
 }
