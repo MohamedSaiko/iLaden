@@ -13,16 +13,27 @@ struct LoginView: View {
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
-        IconTextButton(icon: .googleIcon, text: "Continue with Google") {
-            Task {
-                loginViewModel.signInWithGoogle() {(result: Result<GIDSignInResult, Error>) in
-                    switch result {
-                    case .success(let googleSignInResult):
-                        navigationCoordinator.push(.home)
-                        print("Successfully signed in with Google")
-                    case .failure(let error):
-                        print(error.localizedDescription)
+        VStack {
+            IconTextButton(icon: .googleIcon, text: "Continue with Google") {
+                Task {
+                    loginViewModel.signInWithGoogle() {(result: Result<GIDSignInResult, Error>) in
+                        switch result {
+                        case .success(let googleSignInResult):
+                            navigationCoordinator.push(.home)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
                     }
+                }
+            }
+        }
+        .onAppear {
+            loginViewModel.getGoogleUserSignInState { (result: Result<GIDGoogleUser, Error>) in
+                switch result {
+                case .success(let googleCurrentUser):
+                    navigationCoordinator.push(.home)
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
         }
