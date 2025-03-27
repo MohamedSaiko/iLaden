@@ -5,16 +5,14 @@
 //  Created by Mohamed Sayed on 24.03.25.
 //
 
-import Foundation
-
 final class TokenUpdater: AnyTokenUpdater {
-    private let secureStorageManager: AnySecureStorageManager
+    private let secureStorageUpdater: AnySecureStorageUpdater
     
-    init(secureStorageManager: AnySecureStorageManager = KeyChainManager()) {
-        self.secureStorageManager = secureStorageManager
+    init(secureStorageUpdater: AnySecureStorageUpdater = KeyChainUpdater()) {
+        self.secureStorageUpdater = secureStorageUpdater
     }
     
     func updateToken(token: String, forKey key: String) throws {
-        try secureStorageManager.updateSecret(secret: token, forKey: key)
+        try secureStorageUpdater.updateSecret(secret: token, forKey: key)
     }
 }
