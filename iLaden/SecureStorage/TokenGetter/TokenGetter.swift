@@ -15,7 +15,7 @@ final class TokenGetter: AnyTokenGetter {
     }
     
     func getToken(forKey key: String) -> String {
-        guard let token = secureStorageManager.get(forKey: key) else { return ""}
+        guard let token = secureStorageManager.getSecret(forKey: key) else { return ""}
         return token
     }
 }
