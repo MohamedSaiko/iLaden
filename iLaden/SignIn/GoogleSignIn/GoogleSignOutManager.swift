@@ -5,4 +5,10 @@
 //  Created by Mohamed Sayed on 27.03.25.
 //
 
-import Foundation
+import GoogleSignIn
+
+final class GoogleSignOutManager: AnyGoogleSignOutManager {
+    func signOut() {
+        GIDSignIn.sharedInstance.signOut()
+    }
+}
