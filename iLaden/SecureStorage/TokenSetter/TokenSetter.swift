@@ -5,16 +5,14 @@
 //  Created by Mohamed Sayed on 24.03.25.
 //
 
-import Foundation
-
 final class TokenSetter: AnyTokenSetter {
-    private let secureStorageManager: AnySecureStorageManager
+    private let secureStorageSetter: AnySecureStorageSetter
     
-    init(secureStorageManager: AnySecureStorageManager = KeyChainManager()) {
-        self.secureStorageManager = secureStorageManager
+    init(secureStorageSetter: AnySecureStorageSetter = KeyChainSetter()) {
+        self.secureStorageSetter = secureStorageSetter
     }
     
     func setToken(token: String, forKey key: String) throws {
-        try secureStorageManager.setSecret(secret: token, forKey: key)
+        try secureStorageSetter.setSecret(secret: token, forKey: key)
     }
 }
