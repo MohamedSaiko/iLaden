@@ -22,9 +22,8 @@ final class NavigationCoordinator: ObservableObject {
     }
     
     func pop() {
-        if !path.isEmpty {
-            path.removeLast()
-        }
+        guard !path.isEmpty else { return }
+        path.removeLast()
     }
     
     func reset() {
