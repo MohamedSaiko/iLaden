@@ -22,6 +22,7 @@ struct HomeView: View {
         Button("Sign Out") {
             GIDSignIn.sharedInstance.signOut()
             navigationCoordinator.pop()
+            navigationCoordinator.reset()
         }
     }
 }
