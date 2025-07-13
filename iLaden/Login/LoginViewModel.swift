@@ -16,8 +16,6 @@ final class LoginViewModel: ObservableObject {
     private let googleSignInManager: AnyGoogleSignInManager
     private let googleUserSignInStateManager: AnyGoogleUserSignInStateManager
     
-    @Published private(set) var upToDateToken: String = ""
-    
     init(tokenSetter: AnyTokenSetter = TokenSetter(), tokenGetter: AnyTokenGetter = TokenGetter(), tokenUpdater: AnyTokenUpdater = TokenUpdater(), tokenRemover: AnyTokenRemover = TokenRemover(), googleSignInManager: AnyGoogleSignInManager = GoogleSignInManager(), googleUserSignInStateManager: AnyGoogleUserSignInStateManager = GoogleUserSignInStateManager()) {
         self.tokenSetter = tokenSetter
         self.tokenGetter = tokenGetter
@@ -27,23 +25,21 @@ final class LoginViewModel: ObservableObject {
         self.googleUserSignInStateManager = googleUserSignInStateManager
     }
     
-    func setToken(token: String) {
+    func setToken(token: String, forKey key: String) {
         do {
-            try tokenSetter.setToken(token: token, forKey: .idToken)
-            getToken()
+            try tokenSetter.setToken(token: token, forKey: key)
         } catch {
             updateToken(token: token)
         }
     }
     
-    func getToken() {
-        upToDateToken = tokenGetter.getToken(forKey: .idToken)
+    func getToken(forKey key: String) -> String {
+        return tokenGetter.getToken(forKey: key)
     }
     
     func updateToken(token: String) {
         do {
             try tokenUpdater.updateToken(token: token, forKey: .idToken)
-            getToken()
         } catch {
             print(error.localizedDescription)
         }
@@ -52,7 +48,6 @@ final class LoginViewModel: ObservableObject {
     func deleteToken() {
         do {
             try tokenRemover.deleteToken(forKey: .idToken)
-            upToDateToken = ""
         } catch {
             print(error.localizedDescription)
         }
@@ -63,11 +58,10 @@ final class LoginViewModel: ObservableObject {
             switch result {
             case .success(let googleSignInResult):
                 guard let idToken = googleSignInResult.user.idToken?.tokenString else { return }
-                print("JWT ID Token: \(idToken)")
+                self.setToken(token: idToken, forKey: .idToken)
                 DispatchQueue.main.async {
                     completion(.success(googleSignInResult))
                 }
-                
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -81,7 +75,6 @@ final class LoginViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     completion(.success(googleCurrentUser))
                 }
-                
             case .failure(let error):
                 completion(.failure(error))
             }
