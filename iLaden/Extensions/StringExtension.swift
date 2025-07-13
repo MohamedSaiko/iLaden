@@ -8,4 +8,6 @@
 extension String {
     static let googleIcon = "GoogleIcon"
     static let idToken = "ID_Token"
+    static let refreshToken = "Refresh_Token"
+    static let accessToken = "Access_Token"
 }
